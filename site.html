@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Futebol</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon aqui -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .slider {
+            position: relative;
+            max-width: 50%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slides img {
+            width: 100%;
+        }
+        .slide {
+            min-width: 100%;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .card {
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 30%;
+            box-sizing: border-box;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer a {
+            color: #f4f4f4;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>AAPP Store</h1>
+                <div class="dropdown">
+                    <button>Menu</button>
+                    <div class="dropdown-content">
+                        <a href="#">Inicio</a>
+                        <a href="#">Produtos</a>
+                        <a href="#">Serviços</a>
+                        <a href="#">Contato</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="transferir (1).jpg" alt="Imagem 1"></div>
+            <div class="slide"><img src="transferir.jfif" alt="Imagem 2"></div>
+            <div class="slide"><img src="images.jfif" alt="Imagem 3"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <img src="transferir.jpg" alt="Produto 1">
+                <h3>Produto 1</h3>
+                <p>Camiseta Hino comemorativa 122 anos.</p>
+                <p><strong>R$99,99</strong></p>
+            </div>
+            <div class="card">
+                <img src="transferir (1).jfif" alt="Produto 2">
+                <h3>Produto 2</h3>
+                <p>Camiseta 1 2024.</p>
+                <p><strong>R$149,99</strong></p>
+            </div>
+            <div class="card">
+                <img src="camisaretro.jfif" alt="Produto 3">
+                <h3>Produto 3</h3>
+                <p>Camiseta Retro.</p>
+                <p><strong>R$199,99</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AAPP Store. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${(i - index) * 100}%)`;
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }, 3000); // Mudar slide a cada 3 segundos
+    </script>
+</body>
+</html>
